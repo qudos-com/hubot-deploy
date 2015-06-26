@@ -29,20 +29,20 @@ module.exports = (robot) ->
       else
         msg.reply '' if process.env.NODE_ENV == 'test'
 
-  robot.respond /deploy (\S+?)(!)?$/, (msg) ->
+  robot.respond /deploy (\S+?)(!)?$/i, (msg) ->
     name  = msg.match[1]
     force = msg.match[2]
 
     deploy msg, name, force: force, user: msg.message.user.name
 
-  robot.respond /deploy (\S+?) to (\S+?)(!)?$/, (msg) ->
+  robot.respond /deploy (\S+?) to (\S+?)(!)?$/i, (msg) ->
     name        = msg.match[1]
     environment = msg.match[2]
     force       = msg.match[3]
     
     deploy msg, name, environment: environment, force: force, user: msg.message.user.name
 
-  robot.respond /(\S+?) is the default (\S+?) branch for (\S+)/, (msg) ->
+  robot.respond /(\S+?) is the default (\S+?) branch for (\S+)/i, (msg) ->
     branch      = msg.match[1]
     environment = msg.match[2]
     name        = msg.match[3]
