@@ -56,7 +56,7 @@ module.exports = (robot) ->
     _http: ->
       auth = "Bearer #{@constructor.token}"
 
-      robot.http.apply(robot.http, arguments)
+      robot.http.apply(robot, arguments)
         .header('Accept', 'application/vnd.github.cannonball-preview+json')
         .header('Content-Type', 'application/json')
         .header('Authorization', auth)
